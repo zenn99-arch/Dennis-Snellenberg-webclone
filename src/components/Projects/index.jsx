@@ -11,22 +11,26 @@ const projects = [
   {
     title: "C2 Montreal",
     src: "c2montreal.png",
-    color: "#000000"
+    color: "#000000",
+    link:"https://magma-webclone.vercel.app/"
   },
   {
     title: "Office Studio",
     src: "officestudio.png",
-    color: "#8C8C8C"
+    color: "#8C8C8C",
+    link:"https://magma-webclone.vercel.app/"
   },
   {
     title: "Locomotive",
     src: "locomotive.png",
-    color: "#EFE8D3"
+    color: "#EFE8D3",
+    link:"https://magma-webclone.vercel.app/"
   },
   {
     title: "Silencio",
     src: "silencio.png",
-    color: "#706D63"
+    color: "#706D63",
+    link:"https://magma-webclone.vercel.app/"
   }
 ]
 
@@ -81,7 +85,7 @@ export default function Home() {
     <div className={styles.body}>
       {
         projects.map( (project, index) => {
-          return <Project index={index} title={project.title} manageModal={manageModal} key={index}/>
+          return <Project index={index} title={project.title} link={project.link} manageModal={manageModal} key={index}/>
         })
       }
     </div>
@@ -93,8 +97,8 @@ export default function Home() {
             <div style={{top: index * -100 + "%"}} className={styles.modalSlider}>
             {
                 projects.map( (project, index) => {
-                const { src, color } = project
-                return <div className={styles.modal} style={{backgroundColor: color}} key={`modal_${index}`}>
+                const { src, color, link } = project
+                return <div className={styles.modal} style={{backgroundColor: color}}  key={`modal_${index}`}>
                     <Image 
                     src={`/images/${src}`}
                     width={300}
